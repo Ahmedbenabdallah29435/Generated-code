@@ -1,0 +1,13 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@comment.add.headline">Add Comment</h1>
+    <div>
+        <a routerLink="/comments" class="btn btn-secondary" i18n="@@comment.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="content" rowType="textarea" i18n-label="@@comment.content.label" label="Content" />
+    <app-input-row [group]="addForm" field="createdAt" i18n-label="@@comment.createdAt.label" label="Created At" />
+    <app-input-row [group]="addForm" field="user" rowType="select" [options]="userValues" i18n-label="@@comment.user.label" label="User" />
+    <app-input-row [group]="addForm" field="post" rowType="select" [options]="postValues" i18n-label="@@comment.post.label" label="Post" />
+    <input type="submit" i18n-value="@@comment.add.headline" value="Add Comment" class="btn btn-primary mt-4" />
+</form>

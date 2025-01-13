@@ -1,0 +1,15 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@post.edit.headline">Edit Post</h1>
+    <div>
+        <a routerLink="/posts" class="btn btn-secondary" i18n="@@post.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="id" rowType="number" i18n-label="@@post.id.label" label="Id" />
+    <app-input-row [group]="editForm" field="title" i18n-label="@@post.title.label" label="Title" />
+    <app-input-row [group]="editForm" field="content" rowType="textarea" i18n-label="@@post.content.label" label="Content" />
+    <app-input-row [group]="editForm" field="createdAt" i18n-label="@@post.createdAt.label" label="Created At" />
+    <app-input-row [group]="editForm" field="updatedAt" i18n-label="@@post.updatedAt.label" label="Updated At" />
+    <app-input-row [group]="editForm" field="user" rowType="select" [options]="userValues" i18n-label="@@post.user.label" label="User" />
+    <input type="submit" i18n-value="@@post.edit.headline" value="Edit Post" class="btn btn-primary mt-4" />
+</form>

@@ -1,0 +1,41 @@
+<header class="bg-light">
+    <div class="container">
+        <nav class="navbar navbar-light navbar-expand-md">
+            <a routerLink="/" class="navbar-brand">
+                <img ngSrc="logo.png" i18n-alt="@@app.title" alt="Dhia" width="30" height="30" class="d-inline-block align-top">
+                <span class="ps-1" i18n="@@app.title">Dhia</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarToggle"
+                    i18n-aria-label="@@navigation.toggle" aria-label="Toggle navigation" aria-controls="navbarToggle" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <ul class="navbar-nav ms-auto">
+                    <li class="navbar-item">
+                        <a routerLink="/" class="nav-link" i18n="@@navigation.home">Home</a>
+                    </li>
+                    <li class="navbar-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="navbarEntitiesLink" role="button"
+                                aria-expanded="false" i18n="@@navigation.entities">Entities</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarEntitiesLink">
+                            <li><a routerLink="/roles" class="dropdown-item" i18n="@@role.list.headline">Roles</a></li>
+                            <li><a routerLink="/users" class="dropdown-item" i18n="@@user.list.headline">Users</a></li>
+                            <li><a routerLink="/posts" class="dropdown-item" i18n="@@post.list.headline">Posts</a></li>
+                            <li><a routerLink="/comments" class="dropdown-item" i18n="@@comment.list.headline">Comments</a></li>
+                            <li><a routerLink="/reclamations" class="dropdown-item" i18n="@@reclamation.list.headline">Reclamations</a></li>
+                            <li><a routerLink="/postReactions" class="dropdown-item" i18n="@@postReaction.list.headline">Post Reactions</a></li>
+                            <li><a routerLink="/commentReactions" class="dropdown-item" i18n="@@commentReaction.list.headline">Comment Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li class="navbar-item">
+                        @if (authenticationService.isLoggedIn()) {
+                        <button type="button" (click)="authenticationService.logout()" class="nav-link" i18n="@@navigation.logout">Logout</button>
+                        } @else {
+                        <a routerLink="/login" class="nav-link" i18n="@@navigation.login">Login</a>
+                        }
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>

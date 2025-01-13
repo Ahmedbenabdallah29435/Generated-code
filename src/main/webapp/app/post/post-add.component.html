@@ -1,0 +1,14 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@post.add.headline">Add Post</h1>
+    <div>
+        <a routerLink="/posts" class="btn btn-secondary" i18n="@@post.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="title" i18n-label="@@post.title.label" label="Title" />
+    <app-input-row [group]="addForm" field="content" rowType="textarea" i18n-label="@@post.content.label" label="Content" />
+    <app-input-row [group]="addForm" field="createdAt" i18n-label="@@post.createdAt.label" label="Created At" />
+    <app-input-row [group]="addForm" field="updatedAt" i18n-label="@@post.updatedAt.label" label="Updated At" />
+    <app-input-row [group]="addForm" field="user" rowType="select" [options]="userValues" i18n-label="@@post.user.label" label="User" />
+    <input type="submit" i18n-value="@@post.add.headline" value="Add Post" class="btn btn-primary mt-4" />
+</form>

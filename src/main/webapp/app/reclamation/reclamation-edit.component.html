@@ -1,0 +1,16 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@reclamation.edit.headline">Edit Reclamation</h1>
+    <div>
+        <a routerLink="/reclamations" class="btn btn-secondary" i18n="@@reclamation.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="id" rowType="number" i18n-label="@@reclamation.id.label" label="Id" />
+    <app-input-row [group]="editForm" field="title" i18n-label="@@reclamation.title.label" label="Title" />
+    <app-input-row [group]="editForm" field="description" rowType="textarea" i18n-label="@@reclamation.description.label" label="Description" />
+    <app-input-row [group]="editForm" field="status" i18n-label="@@reclamation.status.label" label="Status" />
+    <app-input-row [group]="editForm" field="createdAt" i18n-label="@@reclamation.createdAt.label" label="Created At" />
+    <app-input-row [group]="editForm" field="updatedAt" i18n-label="@@reclamation.updatedAt.label" label="Updated At" />
+    <app-input-row [group]="editForm" field="user" rowType="select" [options]="userValues" i18n-label="@@reclamation.user.label" label="User" />
+    <input type="submit" i18n-value="@@reclamation.edit.headline" value="Edit Reclamation" class="btn btn-primary mt-4" />
+</form>

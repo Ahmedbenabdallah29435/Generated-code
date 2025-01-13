@@ -1,0 +1,41 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@commentReaction.list.headline">Comment Reactions</h1>
+    <div>
+        <a routerLink="/commentReactions/add" class="btn btn-primary ms-2" i18n="@@commentReaction.list.createNew">Create new Comment Reaction</a>
+    </div>
+</div>
+@if (!commentReactions || commentReactions.length === 0) {
+<div i18n="@@commentReaction.list.empty">No Comment Reactions could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@commentReaction.id.label">Id</th>
+                <th scope="col" i18n="@@commentReaction.reaction.label">Reaction</th>
+                <th scope="col" i18n="@@commentReaction.createdAt.label">Created At</th>
+                <th scope="col" i18n="@@commentReaction.user.label">User</th>
+                <th scope="col" i18n="@@commentReaction.comment.label">Comment</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (commentReaction of commentReactions; track commentReaction.id) {
+            <tr>
+                <td>{{ commentReaction.id }}</td>
+                <td>{{ commentReaction.reaction }}</td>
+                <td>{{ commentReaction.createdAt }}</td>
+                <td>{{ commentReaction.user }}</td>
+                <td>{{ commentReaction.comment }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/commentReactions/edit', commentReaction.id]" class="btn btn-sm btn-secondary" i18n="@@commentReaction.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(commentReaction.id!)" class="btn btn-sm btn-secondary" i18n="@@commentReaction.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

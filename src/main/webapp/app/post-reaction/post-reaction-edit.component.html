@@ -1,0 +1,14 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@postReaction.edit.headline">Edit Post Reaction</h1>
+    <div>
+        <a routerLink="/postReactions" class="btn btn-secondary" i18n="@@postReaction.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="id" rowType="number" i18n-label="@@postReaction.id.label" label="Id" />
+    <app-input-row [group]="editForm" field="reaction" i18n-label="@@postReaction.reaction.label" label="Reaction" />
+    <app-input-row [group]="editForm" field="createdAt" i18n-label="@@postReaction.createdAt.label" label="Created At" />
+    <app-input-row [group]="editForm" field="user" rowType="select" [options]="userValues" i18n-label="@@postReaction.user.label" label="User" />
+    <app-input-row [group]="editForm" field="post" rowType="select" [options]="postValues" i18n-label="@@postReaction.post.label" label="Post" />
+    <input type="submit" i18n-value="@@postReaction.edit.headline" value="Edit Post Reaction" class="btn btn-primary mt-4" />
+</form>

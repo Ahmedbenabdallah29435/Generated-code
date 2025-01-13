@@ -1,0 +1,9 @@
+<h1 class="mb-4" i18n="@@registration.register.headline">Registration</h1>
+<form [formGroup]="registrationForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="registrationForm" field="username" i18n-label="@@registrationRequest.username.label" label="Username" />
+    <app-input-row [group]="registrationForm" field="password" rowType="password" i18n-label="@@registrationRequest.password.label" label="Password" />
+    <app-input-row [group]="registrationForm" field="email" i18n-label="@@registrationRequest.email.label" label="Email" />
+    <app-input-row [group]="registrationForm" field="createdAt" i18n-label="@@registrationRequest.createdAt.label" label="Created At" />
+    <app-input-row [group]="registrationForm" field="updatedAt" i18n-label="@@registrationRequest.updatedAt.label" label="Updated At" />
+    <input type="submit" i18n-value="@@registration.register.headline" value="Registration" class="btn btn-primary mt-4" />
+</form>
